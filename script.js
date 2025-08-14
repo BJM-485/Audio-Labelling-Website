@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     async function fetchLabels() {
         try {
-            const response = await fetch('Data/labels.json');
+            const response = await fetch('data/labels.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -101,4 +101,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial fetch of the data when the page loads
     fetchLabels();
+
 });
