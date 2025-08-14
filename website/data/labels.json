@@ -1,0 +1,362 @@
+[
+  {
+  "file_id": "video_001",
+  "file_path": "Data/Audio Video/video_001.mp4",
+  "detected_language": "fr",
+  "auto_transcript": [
+    {
+      "text": "La main devant la bouche contient tout ça.",
+      "start_time": 0.0,
+      "end_time": 2.0,
+      "confidence": 0.5
+    },
+    {
+      "text": "Opital presse bitté rien à boucler une sévou plais. Fais vite.",
+      "start_time": 5.0,
+      "end_time": 8.0,
+      "confidence": 0.5
+    },
+    {
+      "text": "A l'opital ?",
+      "start_time": 9.0,
+      "end_time": 10.0,
+      "confidence": 0.5
+    },
+    {
+      "text": "Et après, vous retournez travailler ?",
+      "start_time": 11.0,
+      "end_time": 13.0,
+      "confidence": 0.5
+    },
+    {
+      "text": "Non !",
+      "start_time": 13.0,
+      "end_time": 14.0,
+      "confidence": 0.5
+    }
+  ],
+  "sound_events": [
+    {
+      "label": "Speech",
+      "start_time": 0.0,
+      "end_time": 0.96,
+      "confidence": 0.5287120342254639
+    },
+    {
+      "label": "Speech",
+      "start_time": 0.48,
+      "end_time": 1.44,
+      "confidence": 0.9255691766738892
+    },
+    {
+      "label": "Speech",
+      "start_time": 0.96,
+      "end_time": 1.92,
+      "confidence": 0.711678147315979
+    },
+    {
+      "label": "Speech",
+      "start_time": 1.44,
+      "end_time": 2.4,
+      "confidence": 0.1430186927318573
+    },
+    {
+      "label": "Speech",
+      "start_time": 1.92,
+      "end_time": 2.88,
+      "confidence": 0.21162845194339752
+    },
+    {
+      "label": "Speech",
+      "start_time": 2.4,
+      "end_time": 3.36,
+      "confidence": 0.34715503454208374
+    },
+    {
+      "label": "Music",
+      "start_time": 2.88,
+      "end_time": 3.84,
+      "confidence": 0.8759708404541016
+    },
+    {
+      "label": "Music",
+      "start_time": 3.36,
+      "end_time": 4.32,
+      "confidence": 0.9407376050949097
+    },
+    {
+      "label": "Music",
+      "start_time": 3.84,
+      "end_time": 4.8,
+      "confidence": 0.9206207990646362
+    },
+    {
+      "label": "Music",
+      "start_time": 4.32,
+      "end_time": 5.28,
+      "confidence": 0.9433277249336243
+    },
+    {
+      "label": "Music",
+      "start_time": 4.8,
+      "end_time": 5.76,
+      "confidence": 0.6943805813789368
+    },
+    {
+      "label": "Speech",
+      "start_time": 5.28,
+      "end_time": 6.24,
+      "confidence": 0.8697175979614258
+    },
+    {
+      "label": "Speech",
+      "start_time": 5.76,
+      "end_time": 6.72,
+      "confidence": 0.8475905656814575
+    },
+    {
+      "label": "Speech",
+      "start_time": 6.24,
+      "end_time": 7.2,
+      "confidence": 0.9413271546363831
+    },
+    {
+      "label": "Speech",
+      "start_time": 6.72,
+      "end_time": 7.68,
+      "confidence": 0.3893485963344574
+    },
+    {
+      "label": "Speech",
+      "start_time": 7.2,
+      "end_time": 8.16,
+      "confidence": 0.8034711480140686
+    },
+    {
+      "label": "Speech",
+      "start_time": 7.68,
+      "end_time": 8.64,
+      "confidence": 0.4673312306404114
+    },
+    {
+      "label": "Music",
+      "start_time": 8.16,
+      "end_time": 9.12,
+      "confidence": 0.5963239669799805
+    },
+    {
+      "label": "Music",
+      "start_time": 8.64,
+      "end_time": 9.6,
+      "confidence": 0.501200795173645
+    },
+    {
+      "label": "Speech",
+      "start_time": 9.12,
+      "end_time": 10.08,
+      "confidence": 0.799504280090332
+    },
+    {
+      "label": "Speech",
+      "start_time": 9.6,
+      "end_time": 10.56,
+      "confidence": 0.8868451118469238
+    },
+    {
+      "label": "Speech",
+      "start_time": 10.08,
+      "end_time": 11.04,
+      "confidence": 0.8104770183563232
+    },
+    {
+      "label": "Speech",
+      "start_time": 10.56,
+      "end_time": 11.52,
+      "confidence": 0.6409186720848083
+    },
+    {
+      "label": "Speech",
+      "start_time": 11.04,
+      "end_time": 12.0,
+      "confidence": 0.6601226329803467
+    },
+    {
+      "label": "Speech",
+      "start_time": 11.52,
+      "end_time": 12.48,
+      "confidence": 0.9445378184318542
+    },
+    {
+      "label": "Speech",
+      "start_time": 12.0,
+      "end_time": 12.96,
+      "confidence": 0.9935159087181091
+    },
+    {
+      "label": "Speech",
+      "start_time": 12.48,
+      "end_time": 13.44,
+      "confidence": 0.5237699747085571
+    },
+    {
+      "label": "Music",
+      "start_time": 12.96,
+      "end_time": 13.92,
+      "confidence": 0.2399539053440094
+    },
+    {
+      "label": "Speech",
+      "start_time": 13.44,
+      "end_time": 14.4,
+      "confidence": 0.7677034735679626
+    },
+    {
+      "label": "Speech",
+      "start_time": 13.92,
+      "end_time": 14.88,
+      "confidence": 0.1748601198196411
+    },
+    {
+      "label": "Music",
+      "start_time": 14.4,
+      "end_time": 15.36,
+      "confidence": 0.789204478263855
+    }
+  ],
+  "metadata": {
+    "annotator": "system_auto",
+    "annotation_date": "2025-08-13T10:08:31Z",
+    "sampling_rate_hz": 16000,
+    "duration_seconds": 15.04
+  }
+},
+{
+    "file_id": "audio_001",
+    "file_path": "Data/Audio Video/audio_001.wav",
+    "detected_language": "No speech detected",
+    "auto_transcript": [
+        {
+            "text": "",
+            "start_time": 0.03,
+            "end_time": 3.9,
+            "confidence": null
+        },
+        {
+            "text": "",
+            "start_time": 6.68,
+            "end_time": 7.56,
+            "confidence": null
+        }
+    ],
+    "sound_events": [
+        {
+            "label": "Bird vocalization, bird call, bird song",
+            "start_time": 0.0,
+            "end_time": 0.96,
+            "confidence": 0.5814399123191833
+        },
+        {
+            "label": "Environmental noise",
+            "start_time": 0.48,
+            "end_time": 1.44,
+            "confidence": 0.7336624264717102
+        },
+        {
+            "label": "Bird vocalization, bird call, bird song",
+            "start_time": 0.96,
+            "end_time": 1.92,
+            "confidence": 0.6371029615402222
+        },
+        {
+            "label": "Environmental noise",
+            "start_time": 1.44,
+            "end_time": 2.4,
+            "confidence": 0.29694607853889465
+        },
+        {
+            "label": "Bird vocalization, bird call, bird song",
+            "start_time": 1.92,
+            "end_time": 2.88,
+            "confidence": 0.25751587748527527
+        },
+        {
+            "label": "Bird vocalization, bird call, bird song",
+            "start_time": 2.4,
+            "end_time": 3.36,
+            "confidence": 0.9241302013397217
+        },
+        {
+            "label": "Bird vocalization, bird call, bird song",
+            "start_time": 2.88,
+            "end_time": 3.84,
+            "confidence": 0.8534943461418152
+        },
+        {
+            "label": "Environmental noise",
+            "start_time": 3.36,
+            "end_time": 4.32,
+            "confidence": 0.39274173974990845
+        },
+        {
+            "label": "Animal",
+            "start_time": 3.84,
+            "end_time": 4.8,
+            "confidence": 0.5735787153244019
+        },
+        {
+            "label": "Bird",
+            "start_time": 4.32,
+            "end_time": 5.28,
+            "confidence": 0.9520368576049805
+        },
+        {
+            "label": "Bird vocalization, bird call, bird song",
+            "start_time": 4.8,
+            "end_time": 5.76,
+            "confidence": 0.8472909331321716
+        },
+        {
+            "label": "Bird",
+            "start_time": 5.28,
+            "end_time": 6.24,
+            "confidence": 0.9660669565200806
+        },
+        {
+            "label": "Bird",
+            "start_time": 5.76,
+            "end_time": 6.72,
+            "confidence": 0.9589486718177795
+        },
+        {
+            "label": "Bird vocalization, bird call, bird song",
+            "start_time": 6.24,
+            "end_time": 7.2,
+            "confidence": 0.8861427307128906
+        },
+        {
+            "label": "Bird vocalization, bird call, bird song",
+            "start_time": 6.72,
+            "end_time": 7.68,
+            "confidence": 0.8339335918426514
+        },
+        {
+            "label": "Environmental noise",
+            "start_time": 7.2,
+            "end_time": 8.16,
+            "confidence": 0.5808629393577576
+        },
+        {
+            "label": "Bird vocalization, bird call, bird song",
+            "start_time": 7.68,
+            "end_time": 8.64,
+            "confidence": 0.5996450185775757
+        }
+    ],
+    "metadata": {
+        "annotator": "system_auto",
+        "annotation_date": "2025-08-13T09:13:07Z",
+        "sampling_rate_hz": 16000,
+        "duration_seconds": 8.332375
+    }
+}
+]

@@ -1,0 +1,17 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
+}
+
+/* Custom styles to make the container look nice */
+.card-container {
+    max-width: 800px;
+}
+
+/* Ensure the media container is flexible and centered */
+#mediaPlayerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px; /* Adjust as needed for styling */
+}
