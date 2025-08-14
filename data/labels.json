@@ -1,7 +1,7 @@
 [
   {
   "file_id": "video_001",
-  "file_path": "Data/Audio Video/video_001.mp4",
+  "file_path": "data/audio_and_video/video_001.mp4",
   "detected_language": "fr",
   "auto_transcript": [
     {
@@ -232,7 +232,7 @@
 },
 {
     "file_id": "audio_001",
-    "file_path": "Data/Audio Video/audio_001.wav",
+    "file_path": "data/audio_and_video/audio_001.wav",
     "detected_language": "No speech detected",
     "auto_transcript": [
         {
