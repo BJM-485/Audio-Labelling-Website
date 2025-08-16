@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Labelling UI</title>
+    <!-- Use Tailwind CSS for a clean, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to our separate CSS file -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="flex min-h-screen flex-col items-center justify-center bg-gray-100 p-4">
+    <!-- Main Title is now outside the card container -->
+    <h1 class="m-4 text-3xl font-bold text-gray-800">Audio Labelling Tool</h1>
+
+    <!-- Main Container -->
+    <div class="flex flex-col gap-8 rounded-lg bg-white p-8 shadow-xl md:flex-row">
+      <!-- Left Column: Media Player -->
+      <div class="flex flex-1 flex-col space-y-8">
+        <h2 class="mb-2 text-xl font-semibold text-gray-700">Current Media File</h2>
+        <!-- This div will be populated with either an audio or video tag by JavaScript -->
+        <div id="mediaPlayerContainer" class="w-full overflow-hidden rounded-lg shadow-md">
+          <p class="p-4 text-center text-gray-500">Media player will load here...</p>
+        </div>
+      </div>
+
+      <!-- Right Column: Labels Display and Next Button -->
+      <div class="flex flex-1 flex-col space-y-4">
+        <!-- Labels Display Section -->
+        <h2 class="mb-2 text-xl font-semibold text-gray-700">Label Details</h2>
+        <div id="labelContent" class="max-h-[60vh] overflow-y-auto rounded-lg bg-gray-50 p-4 text-gray-800 shadow-inner">
+          <!-- JSON content will be injected here by JavaScript -->
+          <p class="text-center">Loading labels...</p>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="mt-auto flex justify-center">
+          <button id="nextButton" class="rounded-lg bg-blue-600 px-7 py-3 font-medium text-white shadow-md transition duration-200 hover:bg-blue-700">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Link to our JavaScript file -->
+    <script src="script.js"></script>
+  </body>
+</html>
