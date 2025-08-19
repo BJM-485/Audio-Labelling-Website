@@ -82,16 +82,35 @@ function renderLabels(labelsObject) {
             
             if (Array.isArray(value)) {
                 // Handle arrays like auto_transcript and sound_events
+                // Create a table for these arrays for better readability
                 html += `<h3 class="text-lg font-bold text-gray-800 mt-4 mb-2">${key.replace('_', ' ').toUpperCase()}</h3>`;
-                html += `<ul class="list-disc pl-5 space-y-2">`;
-                value.forEach(item => {
-                    html += `<li>`;
-                    for (const subKey in item) {
-                        html += `<span><span class="font-semibold">${subKey}:</span> ${item[subKey]}</span> `;
-                    }
-                    html += `</li>`;
-                });
-                html += `</ul>`;
+                
+                // Only render a table if the array is not empty
+                if (value.length > 0) {
+                    // Get table headers from the keys of the first object in the array
+                    const headers = Object.keys(value[0]);
+                    
+                    html += `
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200 shadow-md rounded-lg">
+                                <thead class="bg-gray-200">
+                                    <tr>
+                                        ${headers.map(header => `<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">${header.replace('_', ' ')}</th>`).join('')}
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    ${value.map(item => `
+                                        <tr>
+                                            ${Object.values(item).map(val => `<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">${val}</td>`).join('')}
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+                } else {
+                    html += `<p class="text-gray-500 text-sm">No entries found.</p>`;
+                }
             } else if (typeof value === 'object' && value !== null) {
                 // Handle nested objects like metadata
                 html += `<h3 class="text-lg font-bold text-gray-800 mt-4 mb-2">${key.replace('_', ' ').toUpperCase()}</h3>`;
@@ -109,7 +128,6 @@ function renderLabels(labelsObject) {
 
     labelContentDiv.innerHTML = `<ul class="space-y-4">${html}</ul>`;
 }
-
     /**
      * Displays the media and label for the current item in the queue.
      */
@@ -148,4 +166,5 @@ function renderLabels(labelsObject) {
 
     // Initial fetch of the data when the page loads
     fetchLabels();
+
 });
