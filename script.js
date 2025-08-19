@@ -46,54 +46,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Render editable tables
     function renderLabels(labelsObject) {
-        let html = '';
+    let html = '';
 
+    // Top-level info (not editable)
+    html += `
+        <h3 class="text-xl font-bold text-gray-900 mt-4 mb-2 border-b pb-1">File Information</h3>
+        <ul class="list-disc pl-5 space-y-2">
+            <li><span class="font-semibold text-gray-900">File ID:</span> <span class="font-mono text-gray-700">${labelsObject.file_id}</span></li>
+            <li><span class="font-semibold text-gray-900">File Path:</span> <span class="font-mono text-gray-700">${labelsObject.file_path}</span></li>
+            <li><span class="font-semibold text-gray-900">Detected Language:</span> <span class="font-mono text-gray-700">${labelsObject.detected_language}</span></li>
+            ${labelsObject.metadata?.duration_seconds ? `<li><span class="font-semibold text-gray-900">Duration:</span> <span class="font-mono text-gray-700">${labelsObject.metadata.duration_seconds} sec</span></li>` : ''}
+        </ul>
+    `;
+
+    // Auto transcript (editable)
+    if (Array.isArray(labelsObject.auto_transcript)) {
         html += `
-            <h3 class="text-lg font-bold text-gray-800 mt-4 mb-2">File Information</h3>
-            <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                <li><strong>File ID:</strong> ${labelsObject.file_id}</li>
-                <li><strong>File Path:</strong> ${labelsObject.file_path}</li>
-                <li><strong>Detected Language:</strong> ${labelsObject.detected_language}</li>
-                ${labelsObject.metadata?.duration_seconds ? `<li><strong>Duration:</strong> ${labelsObject.metadata.duration_seconds} sec</li>` : ''}
-            </ul>
-        `;
-
-        // Auto transcript table
-        if (Array.isArray(labelsObject.auto_transcript)) {
-            html += `
-                <h3>Auto Transcript</h3>
-                <table border="1" cellpadding="5">
-                    <tr><th>Start</th><th>End</th><th>Text</th></tr>
+            <h3 class="text-xl font-bold text-blue-700 mt-6 mb-2 border-b pb-1">Auto Transcript</h3>
+            <table class="min-w-full border border-gray-300 rounded-md">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="px-4 py-2 text-left font-bold text-gray-900 uppercase text-sm">Start</th>
+                        <th class="px-4 py-2 text-left font-bold text-gray-900 uppercase text-sm">End</th>
+                        <th class="px-4 py-2 text-left font-bold text-gray-900 uppercase text-sm">Text</th>
+                    </tr>
+                </thead>
+                <tbody>
                     ${labelsObject.auto_transcript.map((t, i) => `
                         <tr>
-                            <td><input type="text" value="${t.start_time}" data-section="auto_transcript" data-index="${i}" data-key="start_time"/></td>
-                            <td><input type="text" value="${t.end_time}" data-section="auto_transcript" data-index="${i}" data-key="end_time"/></td>
-                            <td><input type="text" value="${t.text}" data-section="auto_transcript" data-index="${i}" data-key="text"/></td>
+                            <td class="border px-4 py-2"><input type="text" value="${t.start_time}" data-section="auto_transcript" data-index="${i}" data-key="start_time" class="w-full border px-2 py-1 rounded font-mono text-gray-700"/></td>
+                            <td class="border px-4 py-2"><input type="text" value="${t.end_time}" data-section="auto_transcript" data-index="${i}" data-key="end_time" class="w-full border px-2 py-1 rounded font-mono text-gray-700"/></td>
+                            <td class="border px-4 py-2"><input type="text" value="${t.text}" data-section="auto_transcript" data-index="${i}" data-key="text" class="w-full border px-2 py-1 rounded text-gray-800"/></td>
                         </tr>
                     `).join('')}
-                </table>
-            `;
-        }
+                </tbody>
+            </table>
+        `;
+    }
 
-        // Sound events table
-        if (Array.isArray(labelsObject.sound_events)) {
-            html += `
-                <h3>Sound Events</h3>
-                <table border="1" cellpadding="5">
-                    <tr><th>Start</th><th>End</th><th>Label</th></tr>
+    // Sound events (editable)
+    if (Array.isArray(labelsObject.sound_events)) {
+        html += `
+            <h3 class="text-xl font-bold text-blue-700 mt-6 mb-2 border-b pb-1">Sound Events</h3>
+            <table class="min-w-full border border-gray-300 rounded-md">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="px-4 py-2 text-left font-bold text-gray-900 uppercase text-sm">Start</th>
+                        <th class="px-4 py-2 text-left font-bold text-gray-900 uppercase text-sm">End</th>
+                        <th class="px-4 py-2 text-left font-bold text-gray-900 uppercase text-sm">Label</th>
+                    </tr>
+                </thead>
+                <tbody>
                     ${labelsObject.sound_events.map((s, i) => `
                         <tr>
-                            <td><input type="text" value="${s.start_time}" data-section="sound_events" data-index="${i}" data-key="start_time"/></td>
-                            <td><input type="text" value="${s.end_time}" data-section="sound_events" data-index="${i}" data-key="end_time"/></td>
-                            <td><input type="text" value="${s.label}" data-section="sound_events" data-index="${i}" data-key="label"/></td>
+                            <td class="border px-4 py-2"><input type="text" value="${s.start_time}" data-section="sound_events" data-index="${i}" data-key="start_time" class="w-full border px-2 py-1 rounded font-mono text-gray-700"/></td>
+                            <td class="border px-4 py-2"><input type="text" value="${s.end_time}" data-section="sound_events" data-index="${i}" data-key="end_time" class="w-full border px-2 py-1 rounded font-mono text-gray-700"/></td>
+                            <td class="border px-4 py-2"><input type="text" value="${s.label}" data-section="sound_events" data-index="${i}" data-key="label" class="w-full border px-2 py-1 rounded text-gray-800"/></td>
                         </tr>
                     `).join('')}
-                </table>
-            `;
-        }
-
-        labelContentDiv.innerHTML = html;
+                </tbody>
+            </table>
+        `;
     }
+
+    labelContentDiv.innerHTML = html;
+}
 
     // Collect edits from inputs into labels[currentIndex]
     function saveEdits() {
@@ -144,4 +161,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load data
     fetchLabels();
 });
+
 
