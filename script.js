@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch JSON data
     async function fetchLabels() {
         try {
-            const response = await fetch('data/labels.json');
+            const response = await fetch('https://sayantikalaskar.github.io/Data-AkaiSpace/files/final_output.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -161,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load data
     fetchLabels();
 });
+
 
 
 
