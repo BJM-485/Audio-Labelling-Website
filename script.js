@@ -44,42 +44,38 @@ document.addEventListener('DOMContentLoaded', () => {
         mediaPlayerContainer.appendChild(mediaElement);
     }
 
-    // Render labels
+    // Render editable tables
     function renderLabels(labelsObject) {
-        // Editable JSON
-        let html = `
-            <h3>Editable JSON</h3>
-            <textarea id="editableJson" style="width:100%;height:200px;">${JSON.stringify(labelsObject, null, 2)}</textarea>
-        `;
+        let html = '';
 
-        // Auto transcript (start, end, text)
+        // Auto transcript table
         if (Array.isArray(labelsObject.auto_transcript)) {
             html += `
                 <h3>Auto Transcript</h3>
                 <table border="1" cellpadding="5">
                     <tr><th>Start</th><th>End</th><th>Text</th></tr>
-                    ${labelsObject.auto_transcript.map(t => `
+                    ${labelsObject.auto_transcript.map((t, i) => `
                         <tr>
-                            <td>${t.start_time}</td>
-                            <td>${t.end_time}</td>
-                            <td>${t.text}</td>
+                            <td><input type="text" value="${t.start_time}" data-section="auto_transcript" data-index="${i}" data-key="start_time"/></td>
+                            <td><input type="text" value="${t.end_time}" data-section="auto_transcript" data-index="${i}" data-key="end_time"/></td>
+                            <td><input type="text" value="${t.text}" data-section="auto_transcript" data-index="${i}" data-key="text"/></td>
                         </tr>
                     `).join('')}
                 </table>
             `;
         }
 
-        // Sound events (start, end, label)
+        // Sound events table
         if (Array.isArray(labelsObject.sound_events)) {
             html += `
                 <h3>Sound Events</h3>
                 <table border="1" cellpadding="5">
                     <tr><th>Start</th><th>End</th><th>Label</th></tr>
-                    ${labelsObject.sound_events.map(s => `
+                    ${labelsObject.sound_events.map((s, i) => `
                         <tr>
-                            <td>${s.start_time}</td>
-                            <td>${s.end_time}</td>
-                            <td>${s.label}</td>
+                            <td><input type="text" value="${s.start_time}" data-section="sound_events" data-index="${i}" data-key="start_time"/></td>
+                            <td><input type="text" value="${s.end_time}" data-section="sound_events" data-index="${i}" data-key="end_time"/></td>
+                            <td><input type="text" value="${s.label}" data-section="sound_events" data-index="${i}" data-key="label"/></td>
                         </tr>
                     `).join('')}
                 </table>
@@ -89,6 +85,17 @@ document.addEventListener('DOMContentLoaded', () => {
         labelContentDiv.innerHTML = html;
     }
 
+    // Collect edits from inputs into labels[currentIndex]
+    function saveEdits() {
+        const inputs = labelContentDiv.querySelectorAll('input');
+        inputs.forEach(input => {
+            const section = input.dataset.section;
+            const idx = input.dataset.index;
+            const key = input.dataset.key;
+            labels[currentIndex][section][idx][key] = input.value;
+        });
+    }
+
     // Display current item
     function displayCurrentItem() {
         if (labels.length === 0) {
@@ -96,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
             labelContentDiv.innerHTML = '<p>No labels to display.</p>';
             return;
         }
-
         const currentItem = labels[currentIndex];
         createMediaPlayer(currentItem.file_path);
         renderLabels(currentItem);
@@ -104,30 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle Next button
     function handleNext() {
-        // Save edits before moving
-        const editedJson = document.getElementById('editableJson').value;
-        try {
-            labels[currentIndex] = JSON.parse(editedJson);
-        } catch (e) {
-            alert("Invalid JSON format. Please fix it before proceeding.");
-            return;
-        }
-
+        saveEdits();
         currentIndex = (currentIndex + 1) % labels.length;
         displayCurrentItem();
     }
 
     // Handle Download JSON button
     function handleDownload() {
-        // Save edits before downloading
-        const editedJson = document.getElementById('editableJson').value;
-        try {
-            labels[currentIndex] = JSON.parse(editedJson);
-        } catch (e) {
-            alert("Invalid JSON format. Please fix it before downloading.");
-            return;
-        }
-
+        saveEdits();
         const blob = new Blob([JSON.stringify(labels, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
