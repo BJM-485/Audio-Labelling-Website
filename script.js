@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Auto transcript (editable)
     if (Array.isArray(labelsObject.auto_transcript)) {
         html += `
-            <h3 class="text-xl font-bold text-blue-700 mt-6 mb-2 border-b pb-1">Auto Transcript</h3>
+            <h3 class="text-xl font-bold text-gray-900 mt-4 mb-2 border-b pb-1">Auto Transcript</h3>
             <table class="min-w-full border border-gray-300 rounded-md">
                 <thead class="bg-gray-200">
                     <tr>
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sound events (editable)
     if (Array.isArray(labelsObject.sound_events)) {
         html += `
-            <h3 class="text-xl font-bold text-blue-700 mt-6 mb-2 border-b pb-1">Sound Events</h3>
+            <h3 class="text-xl font-bold text-gray-900 mt-4 mb-2 border-b pb-1">Sound Events</h3>
             <table class="min-w-full border border-gray-300 rounded-md">
                 <thead class="bg-gray-200">
                     <tr>
@@ -161,5 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load data
     fetchLabels();
 });
+
 
 
