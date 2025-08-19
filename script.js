@@ -48,6 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderLabels(labelsObject) {
         let html = '';
 
+        html += `
+            <h3 class="text-lg font-bold text-gray-800 mt-4 mb-2">File Information</h3>
+            <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                <li><strong>File ID:</strong> ${labelsObject.file_id}</li>
+                <li><strong>File Path:</strong> ${labelsObject.file_path}</li>
+                <li><strong>Detected Language:</strong> ${labelsObject.detected_language}</li>
+                ${labelsObject.metadata?.duration_seconds ? `<li><strong>Duration:</strong> ${labelsObject.metadata.duration_seconds} sec</li>` : ''}
+            </ul>
+        `;
+
         // Auto transcript table
         if (Array.isArray(labelsObject.auto_transcript)) {
             html += `
@@ -134,3 +144,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load data
     fetchLabels();
 });
+
